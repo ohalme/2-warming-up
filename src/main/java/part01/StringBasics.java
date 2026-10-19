@@ -26,7 +26,7 @@ public class StringBasics {
         // TODO: Fix this method
 
         if (text.length() > maxLength) {
-            text.substring(0, maxLength);
+            text = text.substring(0, maxLength);
         }
         return text;
     }
@@ -41,7 +41,7 @@ public class StringBasics {
     public boolean parseYesOrNo(String text) {
         // FIXME: this seems to always return false, even when the `text` is "yes"
 
-        if (text.toLowerCase() == "yes") {
+        if (text.toLowerCase().equals("yes")) {
             return true;
         }
         return false;
@@ -61,7 +61,24 @@ public class StringBasics {
      * @return "fizz", "buzz", "fizzbuzz" or the given number as a string.
      */
     public String getFizzBuzz(int number) {
-        return "fizzbuzz"; // TODO: implement this method
+
+        String text = "";
+
+        if (number % 3 == 0 && number % 5 == 0) {
+
+            text = "fizzbuzz";
+
+        } else if (number % 3 == 0) {
+
+            text = "fizz";
+        } else if (number % 5 == 0) {
+
+            text = "buzz";
+
+        } else {
+            text = Integer.toString(number);
+        }
+        return text;
     }
 
     /**
@@ -80,7 +97,24 @@ public class StringBasics {
      * @return The text centered in a string of the given width: " Java ".
      */
     public String center(String text, int width) {
-        return null; // TODO: implement this method
+
+        if (text.length() < width) {
+
+            int pituus = (width - text.length()) / 2;
+
+            text = " ".repeat(pituus) + text + " ".repeat(pituus);
+
+            // tähä joku text.length - widht sit jakaa se kahtii ja lisää nii mont välii
+            // eteen ja taakse
+            if (text.length() < width) {
+
+                text = text.strip();
+
+                text = " ".repeat(pituus + 1) + text + " ".repeat(pituus);
+
+            }
+        }
+        return text;
     }
 
     /**
