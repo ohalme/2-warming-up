@@ -156,6 +156,19 @@ public class CollectionsBasics {
     public List<Integer> indicesOf(String text, String substring) {
         // You can assume that the given substring is not empty.
 
-        return null; // TODO: implement this method
+        List<Integer> tulos = new ArrayList<>();
+
+        int pituus = text.length();
+        int subPituus = substring.length();
+
+        for (int i = 0; i <= pituus - subPituus; i++) {
+            String haku = text.substring(i, i + subPituus);
+
+            if (haku.equals(substring)) {
+                tulos.add(i);
+            }
+        }
+
+        return tulos;
     }
 }
