@@ -1,5 +1,6 @@
 package part03;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +25,17 @@ public class ObjectExercise {
      */
     public List<String> getNames(List<Person> people) {
         // hint: you can call the getName() method of each Person on the list
-        return null;
+
+        int listaPituus = people.size();
+        List<String> nimet = new ArrayList<>();
+
+        for (int i = 0; i < listaPituus; i++) {
+
+            Person nimi = people.get(i);
+            nimet.add(nimi.getName());
+
+        }
+        return nimet;
     }
 
     /**
@@ -38,9 +49,22 @@ public class ObjectExercise {
      * @return The oldest person in the list.
      */
     public Person getOldest(List<Person> people) {
-        // hint: you can call the getAge() method of each Person on the list and compare
-        // the ages to find the oldest person
-        return null;
+        int listaPituus = people.size();
+        Person vanhin = null;
+
+        for (int i = 0; i < listaPituus; i++) {
+
+            Person hlo = people.get(i);
+            int age = hlo.getAge();
+
+            if (vanhin == null || age > vanhin.getAge()) {
+
+                vanhin = hlo;
+
+            }
+
+        }
+        return vanhin;
     }
 
     /**
@@ -65,7 +89,36 @@ public class ObjectExercise {
      * @return A formatted string representing the names of people in the list.
      */
     public String generateNamesString(List<Person> people) {
-        // TODO: implement this method
-        return null;
+
+        int listaPituus = people.size();
+        String lista = "";
+
+        if (listaPituus < 1) {
+
+            return "";
+
+        } else if (listaPituus == 1) {
+
+            Person hlo = people.get(0);
+            return hlo.getName();
+
+        } else if (listaPituus == 2) {
+
+            String hlo = people.get(0).getName() + " and " + people.get(1).getName();
+            return hlo;
+
+        } else if (listaPituus == 3) {
+
+            String hlo = people.get(0).getName() + ", " + people.get(1).getName() + " and " + people.get(2).getName();
+            return hlo;
+
+        } else {
+
+            String hlo = people.get(0).getName() + ", " + people.get(1).getName() + " and " + (listaPituus - 2)
+                    + " others";
+            return hlo;
+
+        }
+
     }
 }

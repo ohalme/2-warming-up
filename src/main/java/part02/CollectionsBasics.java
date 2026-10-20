@@ -1,5 +1,6 @@
 package part02;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,8 +21,16 @@ public class CollectionsBasics {
      * @return The maximum value in the list.
      */
     public int maximum(List<Integer> numbers) {
-        return 0; // TODO: implement this method
-    }
+        int luku = numbers.get(0);
+        int maara = numbers.size();
+
+        for (int i = 0; i < maara; i++) {
+            if (numbers.get(i) > luku) {
+                luku = numbers.get(i);
+            }
+        }
+        return luku;
+    } // TODO: implement this method
 
     /**
      * Calculates the sum of all integers in a list.
@@ -30,7 +39,18 @@ public class CollectionsBasics {
      * @return The sum of all integers in the list.
      */
     public int sum(List<Integer> numbers) {
-        return 0; // TODO: implement this method
+
+        int maara = numbers.size();
+        int summa = 0;
+
+        for (int i = 0; i < maara; i++) {
+
+            int luku = numbers.get(i);
+
+            summa = summa + luku;
+
+        }
+        return summa; // TODO: implement this method
     }
 
     /**
@@ -47,7 +67,19 @@ public class CollectionsBasics {
      * @return A new list, where the numbers are multiplied by the given factor.
      */
     public List<Integer> multiply(List<Integer> numbers, int factor) {
-        return null; // TODO: implement this method
+
+        int maara = numbers.size();
+
+        List<Integer> newList = new ArrayList<>();
+
+        for (int i = 0; i < maara; i++) {
+
+            int luku = numbers.get(i) * factor;
+            newList.add(luku);
+
+        }
+
+        return newList; // TODO: implement this method
     }
 
     /**
@@ -61,7 +93,15 @@ public class CollectionsBasics {
      * @return A list containing the numbers between the start and end values.
      */
     public List<Integer> range(int start, int end) {
-        return null; // TODO: implement this method
+
+        List<Integer> list = new ArrayList<>();
+
+        for (int i = start; i < end; i++) {
+
+            list.add(i);
+
+        }
+        return list; // TODO: implement this method
     }
 
     /**
@@ -73,7 +113,8 @@ public class CollectionsBasics {
      * @return The concatenated string.
      */
     public String concatenateStrings(List<String> strings) {
-        return ""; // TODO: implement this method
+
+        return String.join("", strings); // TODO: implement this method
     }
 
     /**
@@ -85,7 +126,17 @@ public class CollectionsBasics {
      * @return A list containing the lengths of the strings in the input list.
      */
     public List<Integer> getLengths(List<String> strings) {
-        return null; // TODO: implement this method
+
+        int pituus = strings.size();
+        List<Integer> lista = new ArrayList<>();
+
+        for (int i = 0; i < pituus; i++) {
+
+            int sananPituus = strings.get(i).length();
+            lista.add(sananPituus);
+
+        }
+        return lista; // TODO: implement this method
     }
 
     /**
